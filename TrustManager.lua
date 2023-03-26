@@ -178,6 +178,7 @@ function summon_trusts(set_name)
    
    if set_name == '' then
       saved_name = settings.trusts.default_set
+      set_name = saved_name:gsub('_', ' ')
    else
       set_name:gsub(' ', '_')
    end
