@@ -164,7 +164,7 @@ function summon_trusts(set_name)
    local trust_list = ''
 
    -- if no set name was entered, summon the first saved set
-   if set_name == '' then
+   if set_name == '' and settings.trusts.default_set == '' then
       local summoned = false
       for k,v in pairs(settings.trusts.sets) do
          if not summoned then
@@ -174,7 +174,13 @@ function summon_trusts(set_name)
       end
    end
 
-   local saved_name = set_name:gsub(' ', '_')
+   local saved_name = ''
+   
+   if set_name == '' then
+      saved_name = settings.trusts.default_set
+   else
+      set_name:gsub(' ', '_')
+   end
 
    log('Summoning '..set_name..' set.')
    for i=1,5 do
