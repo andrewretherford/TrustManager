@@ -180,7 +180,7 @@ function summon_trusts(set_name)
       saved_name = settings.trusts.default_set
       set_name = saved_name:gsub('_', ' ')
    else
-      set_name:gsub(' ', '_')
+      saved_name = set_name:gsub(' ', '_')
    end
 
    log('Summoning '..set_name..' set.')
