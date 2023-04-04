@@ -184,9 +184,13 @@ function summon_trusts(set_name)
    end
 
    log('Summoning '..set_name..' set.')
+   -- log(saved_name)
+   -- for k,v in pairs(settings.trusts.sets[saved_name]) do log(k,v) end
+
    for i=1,5 do
-      if settings.trusts.sets[saved_name][tostring(i)] then
-         trust_list = trust_list..'input /ma "'..settings.trusts.sets[saved_name][tostring(i)]..'" <me>; wait 6;'
+      if settings.trusts.sets[saved_name][i] then
+         log(settings.trusts.sets[saved_name][i])
+         trust_list = trust_list..'input /ma "'..settings.trusts.sets[saved_name][i]..'" <me>; wait 6;'
       end
    end
 
